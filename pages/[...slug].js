@@ -6,7 +6,7 @@ import SEO from "../components/helpers/SEO";
 
 export default function Pages({data}) {
   const page = data.page
-  console.log(page)
+ //console.log(page)
   return(
     <>
       Internal Page<br />
@@ -22,15 +22,17 @@ export default function Pages({data}) {
 
 
 //Get Current Page
-export async function getStaticProps({ params }) {
-  console.log(params.slug[params.slug.length - 1])
+export async function getStaticProps({ params, preview=false}) {
+ 
+  //console.log(params.slug[params.slug.length - 1])
 
   const variables = {
     slug: params.slug[params.slug.length - 1],
   }
 
   const data = await request({
-    query: query_page, variables
+    query: query_page, variables,
+    preview: preview
   });
 
   return {
@@ -41,9 +43,10 @@ export async function getStaticProps({ params }) {
 
 
 //Build Pages
-export async function getStaticPaths() {
+export async function getStaticPaths(context) {
+  console.log(context, "paths")
 
-  
+
   //Query all the pages
   const data = await request({
     query: query_allPages

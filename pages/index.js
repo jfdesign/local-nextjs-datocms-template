@@ -18,14 +18,16 @@ export default function Home({data}) {
   )
 }
 
-export async function getStaticProps() {
-  
+export async function getStaticProps(context) {
+  console.log(context, "index")
   const variables = {
     slug: 'home',
+    preview: context.preview
   }
 
   const data = await request({
-    query: query_page, variables
+    query: query_page, variables,
+    preview: context.preview
   });
 
   return {

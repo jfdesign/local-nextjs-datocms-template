@@ -27,7 +27,7 @@ MyApp.getInitialProps = async ({ ctx }) => {
   getSlug = getSlug.split("/")
   getSlug = getSlug[getSlug.length - 1]
 
-  //console.log(getSlug)
+  //console.log(ctx)
 
   const variables = {
     slug: getSlug,

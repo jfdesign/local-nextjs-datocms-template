@@ -1,8 +1,10 @@
 import Link from 'next/link'
-import {useRouter} from 'next/router'
+import {useRouter, isPreview} from 'next/router'
+
+//console.log(isPreview, "router")
 
 export default function NavLink({item}) {
-
+  
   const router = useRouter()
 
   let link = getLink(item, "")
