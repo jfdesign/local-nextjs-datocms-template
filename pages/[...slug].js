@@ -44,8 +44,6 @@ export async function getStaticProps({ params, preview=false}) {
 
 //Build Pages
 export async function getStaticPaths(context) {
-  console.log(context, "paths")
-
 
   //Query all the pages
   const data = await request({

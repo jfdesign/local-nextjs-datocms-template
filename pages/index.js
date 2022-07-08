@@ -19,10 +19,9 @@ export default function Home({data}) {
 }
 
 export async function getStaticProps(context) {
-  console.log(context, "index")
+
   const variables = {
-    slug: 'home',
-    preview: context.preview
+    slug: 'home'
   }
 
   const data = await request({

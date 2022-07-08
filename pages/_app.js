@@ -27,15 +27,18 @@ MyApp.getInitialProps = async ({ ctx }) => {
   getSlug = getSlug.split("/")
   getSlug = getSlug[getSlug.length - 1]
 
-  //console.log(ctx)
+  //console.log(ctx.preview)
 
   const variables = {
     slug: getSlug,
   }
 
   const data = await request({
-    query: query_essentials, variables
+    query: query_essentials, variables,
+    preview: true
   });
+
+  //console.log(data)
 
   return { data }
 
