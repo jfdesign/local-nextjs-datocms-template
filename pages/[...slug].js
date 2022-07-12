@@ -6,11 +6,11 @@ import SEO from "../components/helpers/SEO";
 
 export default function Pages({data}) {
   const page = data.page
- //console.log(page)
+
   return(
     <>
       Internal Page<br />
-      <SEO seo={data.page.seo} />      
+      <SEO seo={data.page.seo} defSEO={data._site.globalSeo} defPageTitle={page.title} />      
       <h1>{page.title}</h1>
       {page.slug}<br/>
       {page.id}<br/>
@@ -23,8 +23,6 @@ export default function Pages({data}) {
 
 //Get Current Page
 export async function getStaticProps({ params, preview=false}) {
- 
-  //console.log(params.slug[params.slug.length - 1])
 
   const variables = {
     slug: params.slug[params.slug.length - 1],

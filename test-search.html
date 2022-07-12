@@ -1,0 +1,39 @@
+<html>
+  <head>
+    ...
+  </head>
+  <body>
+    ...
+    <div class="search">
+      <div class="search__inner">
+        <div id="search-container"></div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/datocms-search@0.1.8/dist/datocms-search.base.js"></script>
+
+    <script>
+        const client = new DatoCmsSearch("b049d4a958925599fb086e6d14ae5f", "21801");
+        client.search("florence")
+          .then(function(response) {
+            console.info(response.results);
+            // [
+            //   {
+            //     title: "The Crucifix by Brunelleschi",
+            //     body: "...Santa Maria Novella in <strong class=\"highlight\">Florence</strong>..."
+            //     url: "http://www.smn.it/en/opere/5104-the-crucifix-by-brunelleschi/",
+            //   },
+            //   ...
+            // ]
+            console.info(response.total);
+            // 42
+          })
+          .catch(function(error) {
+            console.error(error);
+          });
+    </script>
+
+
+
+  </body>
+</html>

@@ -43,8 +43,6 @@ export async function getPreviewBySlug(requetedSlug) {
     preview: true
   });
 
-  console.log(data.page.slug)
-
   return data.page
   
 }
