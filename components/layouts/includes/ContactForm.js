@@ -5,9 +5,13 @@ export default function ContactForm() {
     <>
       <h2>Netlify Example</h2>
       
-      <form name="contact" method="post" data-netlify="true">
+      <form name="contact" method="post" netlify-honeypot="bot-field" action="/contact-us/thanks" data-netlify="true">
         <input type="hidden" name="form-name" value="contact"/>
-        
+        <p class="hidden">
+          <label>
+            Don’t fill this out if you’re human: <input name="bot-field" />
+          </label>
+        </p>
         <p>
           <label htmlFor="name">Name</label><br />
           <input type="text" id="name" name="name" /> 
@@ -30,6 +34,13 @@ export default function ContactForm() {
         
 
       </form>
+
+      <style jsx global>{`
+        .hidden { 
+          display: none;
+        }
+
+      `}</style>
     </>
 
     
