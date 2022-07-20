@@ -1,12 +1,12 @@
 import { request } from "../lib/datocms";
-import RenderStructuredText from "../components/helpers/RenderStructuredText"
 import { query_allPages } from "../lib/queries/query_allPages";
 import { query_page } from "../lib/queries/query_page";
 import SEO from "../components/helpers/SEO";
+import ContentComponent from "../components/helpers/ContentComponent";
 
 export default function Pages({data}) {
   const page = data.page
-
+  
   return(
     <>
       Internal Page<br />
@@ -14,7 +14,8 @@ export default function Pages({data}) {
       <h1>{page.title}</h1>
       {page.slug}<br/>
       {page.id}<br/>
-      <RenderStructuredText data={page?.content[0]?.structuredText} /><br/>
+      
+      <ContentComponent components={data.page.content} />
       <br/>
     </>
   )

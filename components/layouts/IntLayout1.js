@@ -9,7 +9,9 @@ export default function HomeLayout({ children, data }) {
       
       <Header data={data}></Header>
 
-      <div className="mainC">{children}</div>
+      <div className="mainC">
+        {children}
+      </div>
       
       
 

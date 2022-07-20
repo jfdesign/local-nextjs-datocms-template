@@ -1,6 +1,7 @@
 import  { useState, useEffect } from 'react';
 import DatoCmsSearch from './baseSearch'
 import getConfig from 'next/config'
+import Link from 'next/link'
 
 const { publicRuntimeConfig } = getConfig()
 
@@ -68,9 +69,11 @@ export default function Search() {
                 responseData.results.map(function(item, i){
                   return (
                     <li key={i} style={{marginBottom: "10px"}}>
-                      {item.title}<br />
-                      {item.body}<br />
-                      {item.url}
+                      <Link href={item.url}>
+                        <a dangerouslySetInnerHTML={{ __html: item.title }}>                          
+                        </a>
+                      </Link>
+                      <div dangerouslySetInnerHTML={{ __html: item.body }}></div>
                     </li>
                   )
                 })

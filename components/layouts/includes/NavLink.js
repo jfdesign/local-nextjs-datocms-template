@@ -4,12 +4,11 @@ import {useRouter} from 'next/router'
 export default function NavLink({item}) {
   
   const router = useRouter()
-  //console.log(router.isPreview)
 
   let link = getLink(item, "")
 
   let target = getTarget(item.links[0].openInANewWindow)
-  
+
 
   //Display Lists 
   return(
@@ -69,7 +68,7 @@ export default function NavLink({item}) {
   function nextLevel(lv_Item, rootPath) {
     
     //has children
-    if(lv_Item.children.length > 0 ){
+    if(lv_Item?.children?.length > 0 ){
       
       return(
         <ul>

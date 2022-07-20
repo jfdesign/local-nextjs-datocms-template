@@ -68,6 +68,8 @@ DatoCmsSearch.prototype = {
         var response = JSON.parse(responseText);
 
         var results = response.data.map(function(result) {
+          
+
           var highlight = result.attributes.highlight;
 
           return {

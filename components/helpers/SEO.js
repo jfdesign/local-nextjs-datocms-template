@@ -18,6 +18,7 @@ export default function SEO({ seo, defSEO, defPageTitle }){
   if(seo?.title != "" && seo?.title != undefined){
     seoPageTitle = seo?.title
   }
+  
   const seoTitle = `${seoPageTitle}${defSEO?.titleSuffix}`
 
   return(
