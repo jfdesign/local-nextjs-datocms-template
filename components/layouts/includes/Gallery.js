@@ -20,9 +20,9 @@ export default function RenderGallery({gallery}) {
       <Slider {...settings}>
 
         {
-          gallery.gallerySlides.map((slide) => {
+          gallery.gallerySlides.map((slide, i) => {
             return( 
-              <div>
+              <div key={i}>
                 <h2>{slide.headline}</h2>
                 <h4>{slide.subHead}</h4>
                 <Image data={slide.image.responsiveImage} />
