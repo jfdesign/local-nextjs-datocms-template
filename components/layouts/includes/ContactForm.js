@@ -6,6 +6,7 @@ export default function ContactForm() {
       <h2>Netlify Example</h2>
       
       <form name="contact" method="post" data-netlify="true">
+        <input type="hidden" name="form-name" value="contact"/>
         
         <p>
           <label htmlFor="name">Name</label><br />
