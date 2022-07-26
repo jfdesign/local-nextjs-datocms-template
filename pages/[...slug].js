@@ -4,7 +4,7 @@ import { query_page } from "../lib/queries/query_page";
 import SEO from "../components/helpers/SEO";
 import ContentComponent from "../components/helpers/ContentComponent";
 
-export default function Pages({data}) {
+export default function Pages({data, loadModal}) {
   const page = data.page
   
   return(
@@ -14,8 +14,12 @@ export default function Pages({data}) {
       <h1>{page.title}</h1>
       {page.slug}<br/>
       {page.id}<br/>
+      <br />
+
+      <button onClick={() => loadModal({show:true, data: "Modal1"})}>Open Modal 1</button><br />
+      <br />
       
-      <ContentComponent components={data.page.content} />
+      <ContentComponent components={data.page.content} loadModal={loadModal} />
       <br/>
     </>
   )

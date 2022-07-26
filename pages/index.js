@@ -4,7 +4,7 @@ import SEO from "../components/helpers/SEO";
 import ContentComponent from "../components/helpers/ContentComponent";
 import PageHeader from "../components/layouts/includes/PageHeader";
 
-export default function Home({data}) {
+export default function Home({data, loadModal}) {
   const page = data.page
   
   let pgHeader = {
@@ -17,6 +17,7 @@ export default function Home({data}) {
     "btnColor": page.pageHeaderButtonColor,
   }
 
+
   return (
     <>
       <SEO seo={data.page.seo} defSEO={data._site.globalSeo} defPageTitle={page.title} />      
@@ -25,7 +26,14 @@ export default function Home({data}) {
       
       {page.slug}<br/>
       {page.id}<br/>
+
+      <button onClick={() => loadModal({show:true, data: "Modal1"})}>Open Modal 1</button>
+      <br/><br/>
+   
       
+      
+      
+      <br />
       <ContentComponent components={data.page.content} />
       <br/>
     
